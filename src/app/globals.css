@@ -362,6 +362,143 @@ footer { display: grid; grid-template-columns: 1fr auto auto; gap: 100px; width:
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
+/* Hero 2026-10 — composição fiel à referência, com tela real do produto */
+.hero {
+  aspect-ratio: 1838 / 856;
+  min-height: 720px;
+  max-height: none;
+  margin-top: 16px;
+  color: var(--forest-deep);
+  border: 11px solid #0b1713;
+  border-radius: 58px;
+  background: #bfe3f6;
+}
+.hero-photo { object-fit: cover; object-position: center; }
+.hero-wash {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(255,255,255,.18), transparent 36%), linear-gradient(90deg, rgba(241,249,251,.4), transparent 29%, transparent 71%, rgba(241,249,251,.26));
+  pointer-events: none;
+}
+.hero-header {
+  position: absolute;
+  z-index: 6;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 92px;
+  padding: 0 clamp(30px, 4vw, 68px);
+  color: var(--forest-deep);
+}
+.hero-header nav { background: rgba(255,255,255,.45); border-color: rgba(255,255,255,.65); backdrop-filter: blur(18px); }
+.hero-header .button--small { background: rgba(255,255,255,.9); box-shadow: 0 12px 30px rgba(11,62,47,.1); }
+.hero-copy--reference {
+  left: clamp(36px, 4.5vw, 76px);
+  top: clamp(150px, 19%, 210px);
+  width: min(620px, 37%);
+  transform: none;
+}
+.hero-copy--reference .overline { color: var(--forest-mid); }
+.hero-copy--reference h1 {
+  margin: 18px 0 0;
+  color: var(--forest-deep);
+  font-size: clamp(49px, 4.5vw, 78px);
+  line-height: .96;
+  letter-spacing: -.065em;
+  text-wrap: balance;
+}
+.hero-copy--reference h1 em { color: #398d4f; }
+.hero-side-copy {
+  position: absolute;
+  z-index: 5;
+  top: clamp(166px, 20%, 220px);
+  right: clamp(36px, 4.5vw, 76px);
+  width: min(350px, 25%);
+}
+.hero-side-copy p { margin: 0 0 24px; font-size: clamp(15px, 1.1vw, 18px); line-height: 1.5; }
+.hero-side-copy .button { min-height: 48px; }
+.hero-product-real--reference {
+  z-index: 4;
+  left: 50%;
+  right: auto;
+  bottom: -8.35%;
+  width: 18.05%;
+  transform: translateX(-50%);
+}
+.hero-product-real--reference .prototype-screen { filter: none; }
+.hero-data-card {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: clamp(200px, 18vw, 288px);
+  padding: 20px 22px;
+  color: var(--forest-deep);
+  border: 1px solid rgba(255,255,255,.82);
+  border-radius: 22px;
+  background: rgba(255,255,255,.88);
+  box-shadow: 0 20px 45px rgba(14,58,44,.13);
+  backdrop-filter: blur(18px);
+}
+.hero-data-card > span { color: #66766f; font-size: 11px; font-weight: 650; letter-spacing: .02em; }
+.hero-data-card strong { font-size: clamp(22px, 2vw, 32px); line-height: 1; letter-spacing: -.045em; font-variant-numeric: tabular-nums; }
+.hero-data-card strong small { font-size: .48em; }
+.hero-data-card > small { color: #39764a; font-size: 10px; line-height: 1.35; }
+.hero-data-card i { height: 7px; margin: 3px 0 1px; border-radius: 999px; background: #e1e8e2; overflow: hidden; }
+.hero-data-card i b { display: block; width: 64.3%; height: 100%; border-radius: inherit; background: var(--forest-deep); }
+.hero-data-card--production { left: 14%; bottom: 24%; }
+.hero-data-card--price { right: 13%; bottom: 22%; }
+.hero-data-card--cash { left: 19%; bottom: 6%; width: clamp(190px, 16vw, 250px); }
+.hero-data-card--cash strong { font-size: clamp(18px, 1.5vw, 24px); }
+
+.opportunity-row--tax { background: #f1ecd7; }
+.opportunity-row--tax::after { left: -220px; top: -310px; }
+
+@media (max-width: 1180px) {
+  .hero { min-height: 680px; }
+  .hero-copy--reference { width: 38%; }
+  .hero-side-copy { width: 25%; }
+  .hero-data-card--production { left: 8%; }
+  .hero-data-card--price { right: 7%; }
+  .hero-data-card--cash { display: none; }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    aspect-ratio: auto;
+    min-height: 980px;
+    margin-top: 8px;
+    border-width: 7px;
+    border-radius: 38px;
+    background: linear-gradient(180deg, #d6eef9 0 46%, #88b76b 100%);
+  }
+  .hero-photo { object-fit: cover; object-position: center bottom; opacity: .88; }
+  .hero-wash { background: linear-gradient(180deg, rgba(244,251,252,.95) 0, rgba(244,251,252,.78) 37%, transparent 61%); }
+  .hero-header { height: 76px; padding-inline: 24px; }
+  .hero-copy--reference { top: 106px; left: 28px; width: calc(100% - 56px); }
+  .hero-copy--reference h1 { font-size: clamp(48px, 9vw, 72px); }
+  .hero-side-copy { top: 305px; left: 28px; right: auto; width: min(520px, calc(100% - 56px)); }
+  .hero-side-copy p { max-width: 520px; }
+  .hero-product-real--reference { display: block; width: 35%; bottom: -6%; }
+  .hero-data-card--production { left: 4%; bottom: 14%; }
+  .hero-data-card--price { right: 4%; bottom: 12%; }
+}
+
+@media (max-width: 620px) {
+  .hero { min-height: 860px; border-radius: 30px; }
+  .hero-header { padding-inline: 18px; }
+  .hero-copy--reference { top: 88px; left: 20px; width: calc(100% - 40px); }
+  .hero-copy--reference .overline { font-size: 8px; }
+  .hero-copy--reference h1 { margin-top: 12px; font-size: clamp(40px, 12vw, 54px); }
+  .hero-side-copy { top: 255px; left: 20px; width: calc(100% - 40px); }
+  .hero-side-copy p { font-size: 14px; }
+  .hero-side-copy .button { min-height: 46px; }
+  .hero-product-real--reference { width: 71%; bottom: -11%; }
+  .hero-data-card { display: none; }
+}
+
 /* Real product screens and commercial narrative */
 .overline { margin: 0; color: var(--forest-mid); font-size: 10px; font-weight: 800; letter-spacing: .13em; }
 .overline--light { color: rgba(255,255,255,.72) !important; }
@@ -481,4 +618,30 @@ footer { display: grid; grid-template-columns: 1fr auto auto; gap: 100px; width:
   .opportunity-visual { width: 245px; margin: auto auto 0; transform: translateY(118px) rotate(-2deg); }
   .opportunity-row--compare .opportunity-visual, .opportunity-row--market .opportunity-visual { transform: translateY(118px) rotate(2deg); }
   .zero-commission strong { font-size: 84px; }
+}
+
+/* Deve permanecer por último: neutraliza a posição antiga do mockup do hero. */
+.hero .hero-product-real--reference {
+  z-index: 4;
+  left: 50%;
+  right: auto;
+  bottom: -14.5%;
+  width: 21.3%;
+  border-radius: 14% / 6.5%;
+  overflow: hidden;
+  transform: translateX(-50%);
+}
+.hero .hero-product-real--reference .prototype-screen { filter: none; }
+
+@media (max-width: 900px) {
+  .hero .hero-product-real--reference { display: block; width: 40%; bottom: -9%; }
+}
+
+@media (max-width: 620px) {
+  .hero { min-height: 1000px; background: linear-gradient(180deg, #dff3fb 0 46%, #c5e3b0 76%, #7eaa61 100%); }
+  .hero .hero-photo { display: none; }
+  .hero .hero-wash { background: linear-gradient(180deg, rgba(255,255,255,.26), transparent 54%); }
+  .hero .hero-side-copy { top: 330px; }
+  .hero .hero-product-real--reference { display: block; width: 82%; bottom: -16%; }
+  .opportunity-row--tax { flex-direction: column; }
 }
