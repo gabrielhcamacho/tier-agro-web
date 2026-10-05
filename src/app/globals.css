@@ -369,8 +369,8 @@ footer { display: grid; grid-template-columns: 1fr auto auto; gap: 100px; width:
   max-height: none;
   margin-top: 16px;
   color: var(--forest-deep);
-  border: 11px solid #0b1713;
-  border-radius: 58px;
+  border: 0;
+  border-radius: 40px;
   background: #bfe3f6;
 }
 .hero-photo { object-fit: cover; object-position: center; }
@@ -403,7 +403,7 @@ footer { display: grid; grid-template-columns: 1fr auto auto; gap: 100px; width:
 .hero-copy--reference h1 {
   margin: 18px 0 0;
   color: var(--forest-deep);
-  font-size: clamp(49px, 4.5vw, 78px);
+  font-size: clamp(48px, 4.15vw, 72px);
   line-height: .96;
   letter-spacing: -.065em;
   text-wrap: balance;
@@ -418,15 +418,26 @@ footer { display: grid; grid-template-columns: 1fr auto auto; gap: 100px; width:
 }
 .hero-side-copy p { margin: 0 0 24px; font-size: clamp(15px, 1.1vw, 18px); line-height: 1.5; }
 .hero-side-copy .button { min-height: 48px; }
-.hero-product-real--reference {
+.hero-screen-window {
+  position: absolute;
   z-index: 4;
-  left: 50%;
-  right: auto;
-  bottom: -8.35%;
-  width: 18.05%;
-  transform: translateX(-50%);
+  left: 39.63%;
+  top: 24.5%;
+  bottom: -1px;
+  width: 19.55%;
+  overflow: hidden;
+  border-radius: 12.4% 12.4% 0 0 / 5.8% 5.8% 0 0;
 }
-.hero-product-real--reference .prototype-screen { filter: none; }
+.hero-screen-image {
+  position: absolute;
+  top: -1.08%;
+  left: -2.42%;
+  display: block;
+  width: 104.84%;
+  max-width: none;
+  height: auto;
+}
+.hero-mobile-phone { display: none; overflow: hidden; border-radius: 14% / 6.5%; }
 .hero-data-card {
   position: absolute;
   z-index: 5;
@@ -470,7 +481,6 @@ footer { display: grid; grid-template-columns: 1fr auto auto; gap: 100px; width:
     aspect-ratio: auto;
     min-height: 980px;
     margin-top: 8px;
-    border-width: 7px;
     border-radius: 38px;
     background: linear-gradient(180deg, #d6eef9 0 46%, #88b76b 100%);
   }
@@ -481,7 +491,9 @@ footer { display: grid; grid-template-columns: 1fr auto auto; gap: 100px; width:
   .hero-copy--reference h1 { font-size: clamp(48px, 9vw, 72px); }
   .hero-side-copy { top: 305px; left: 28px; right: auto; width: min(520px, calc(100% - 56px)); }
   .hero-side-copy p { max-width: 520px; }
-  .hero-product-real--reference { display: block; width: 35%; bottom: -6%; }
+  .hero-screen-window { display: none; }
+  .hero-mobile-phone { position: absolute; z-index: 4; left: 50%; bottom: -9%; display: block; width: 40%; transform: translateX(-50%); }
+  .hero-mobile-phone .prototype-screen { filter: none; }
   .hero-data-card--production { left: 4%; bottom: 14%; }
   .hero-data-card--price { right: 4%; bottom: 12%; }
 }
@@ -495,7 +507,7 @@ footer { display: grid; grid-template-columns: 1fr auto auto; gap: 100px; width:
   .hero-side-copy { top: 255px; left: 20px; width: calc(100% - 40px); }
   .hero-side-copy p { font-size: 14px; }
   .hero-side-copy .button { min-height: 46px; }
-  .hero-product-real--reference { width: 71%; bottom: -11%; }
+  .hero-mobile-phone { width: 71%; bottom: -11%; }
   .hero-data-card { display: none; }
 }
 
@@ -620,28 +632,11 @@ footer { display: grid; grid-template-columns: 1fr auto auto; gap: 100px; width:
   .zero-commission strong { font-size: 84px; }
 }
 
-/* Deve permanecer por último: neutraliza a posição antiga do mockup do hero. */
-.hero .hero-product-real--reference {
-  z-index: 4;
-  left: 50%;
-  right: auto;
-  bottom: -14.5%;
-  width: 21.3%;
-  border-radius: 14% / 6.5%;
-  overflow: hidden;
-  transform: translateX(-50%);
-}
-.hero .hero-product-real--reference .prototype-screen { filter: none; }
-
-@media (max-width: 900px) {
-  .hero .hero-product-real--reference { display: block; width: 40%; bottom: -9%; }
-}
-
 @media (max-width: 620px) {
   .hero { min-height: 1000px; background: linear-gradient(180deg, #dff3fb 0 46%, #c5e3b0 76%, #7eaa61 100%); }
   .hero .hero-photo { display: none; }
   .hero .hero-wash { background: linear-gradient(180deg, rgba(255,255,255,.26), transparent 54%); }
   .hero .hero-side-copy { top: 330px; }
-  .hero .hero-product-real--reference { display: block; width: 82%; bottom: -16%; }
+  .hero .hero-mobile-phone { width: 82%; bottom: -16%; }
   .opportunity-row--tax { flex-direction: column; }
 }

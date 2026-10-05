@@ -56,8 +56,11 @@ export default function Page() {
           <a className="button button--dark" href="/criar-conta">Começar agora <Arrow /></a>
         </div>
 
-        <div className="hero-product-real hero-product-real--reference">
-          <PrototypeScreen src="/images/site-home.png" alt="Tela inicial real do aplicativo Tier Agro" priority />
+        <div className="hero-screen-window">
+          <Image className="hero-screen-image" src="/images/site-home.png" alt="Tela inicial real do aplicativo Tier Agro" width={390} height={844} priority />
+        </div>
+        <div className="hero-mobile-phone" aria-hidden="true">
+          <PrototypeScreen src="/images/site-home.png" alt="" priority />
         </div>
 
         <div className="hero-data-card hero-data-card--production">
