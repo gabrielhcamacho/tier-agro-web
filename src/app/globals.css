@@ -141,6 +141,16 @@ em { font-family: var(--serif); font-weight: 400; }
   object-fit: cover;
   object-position: center;
   pointer-events: none;
+  mask-image: url('/images/tier-agro-field-farmer-orange-foreground.png');
+  mask-size: cover;
+  mask-position: center;
+}
+.field-story-phone {
+  z-index: 3;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse 40px 58px at calc(50% + 154px) 43%, #000 65%, transparent 100%);
 }
 .field-story .story-card--behind {
   z-index: 1;
@@ -157,7 +167,11 @@ em { font-family: var(--serif); font-weight: 400; }
 .field-story .story-card--behind h2 { max-width: 430px; margin: 0 0 20px; font-size: clamp(46px, 4vw, 66px); }
 .field-story .story-card--behind p:last-child { max-width: 380px; }
 .field-story .story-card--behind .overline { margin-bottom: auto; }
-.field-story .story-card--front { z-index: 3; right: 5.5%; top: 27%; width: 29%; min-height: 390px; padding: 38px; }
+.story-offer-preview { position: absolute; left: 50px; top: 78px; width: min(290px, calc(100% - 100px)); }
+.story-offer-preview > span { display: block; margin-bottom: 10px; color: #d7e8dd; font-size: 12px; font-weight: 700; letter-spacing: .01em; }
+.story-offer-preview__card { position: relative; width: 100%; aspect-ratio: 332 / 172; overflow: hidden; border-radius: 25px; background: #fff; box-shadow: 0 18px 35px rgba(0,0,0,.13); }
+.story-offer-preview__card img { position: absolute; top: -177.33%; left: -8.73%; width: 117.47%; max-width: none; height: auto; }
+.field-story .story-card--front { z-index: 4; right: 5.5%; top: 27%; width: 29%; min-height: 390px; padding: 38px; }
 .field-story .story-card--front h3 { margin-top: 65px; }
 
 .flow-board { position: relative; display: grid; grid-template-columns: .8fr 1fr .7fr; gap: 70px; align-items: center; margin-top: 85px; padding: 56px 60px; min-height: 620px; border: 1px solid #dee4de; border-radius: 36px; background: #fafbf8; overflow: hidden; }
@@ -502,8 +516,10 @@ footer { display: grid; grid-template-columns: 1fr auto auto; gap: 100px; width:
   .field-story { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; min-height: 0; padding: 480px 22px 22px; background: #e8eee5; }
   .field-story .field-story-photo { height: 520px !important; object-position: 64% center; }
   .field-story-person { display: none; }
+  .field-story .field-story-phone { height: 520px !important; object-position: 64% center; mask-image: radial-gradient(ellipse 28px 42px at calc(50% + 10px) 43%, #000 65%, transparent 100%); }
   .field-story .story-card--behind, .field-story .story-card--front { position: relative; top: auto; left: auto; right: auto; bottom: auto; width: 100%; min-height: 300px; padding: 28px; }
-  .field-story .story-card--behind h2 { margin-top: 34px; font-size: 40px; }
+  .story-offer-preview { position: relative; top: auto; left: auto; width: min(100%, 310px); margin: 24px 0; }
+  .field-story .story-card--behind h2 { margin-top: 0; font-size: 40px; }
   .field-story .story-card--front h3 { margin-top: 34px; font-size: 32px; }
 }
 
@@ -516,8 +532,9 @@ footer { display: grid; grid-template-columns: 1fr auto auto; gap: 100px; width:
   .hero-mobile-phone { left: 50%; right: auto; width: 71%; bottom: -11%; transform: translateX(-50%); }
   .field-story { grid-template-columns: 1fr; gap: 12px; padding: 390px 14px 14px; }
   .field-story .field-story-photo { height: 430px !important; object-position: 61% center; }
+  .field-story .field-story-phone { height: 430px !important; object-position: 61% center; mask-image: radial-gradient(ellipse 24px 35px at 50% 43%, #000 65%, transparent 100%); }
   .field-story .story-card--behind, .field-story .story-card--front { min-height: 0; padding: 28px; }
-  .field-story .story-card--behind h2 { margin: 50px 0 16px; font-size: 38px; }
+  .field-story .story-card--behind h2 { margin: 0 0 16px; font-size: 38px; }
   .field-story .story-card--front h3 { margin-top: 28px; font-size: 32px; }
 }
 

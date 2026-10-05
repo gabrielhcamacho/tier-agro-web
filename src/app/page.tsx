@@ -94,13 +94,20 @@ export default function Page() {
       </section>
 
       <section className="field-story section-frame">
-        <Image className="field-story-photo" src="/images/tier-agro-field-farmer-orange-phone.png" alt="Produtor rural consultando um iPhone laranja ao lado de uma lavoura de milho" fill sizes="100vw" />
+        <Image className="field-story-photo" src="/images/tier-agro-field-farmer.jpg" alt="Produtor rural consultando o celular ao lado de uma lavoura de milho" fill sizes="100vw" />
         <div className="story-card story-card--behind">
           <p className="overline overline--light">MERCADO · FASE FUTURA</p>
+          <div className="story-offer-preview">
+            <span>Uma das 3 propostas recebidas</span>
+            <div className="story-offer-preview__card">
+              <Image src="/images/site-market.png" alt="Proposta da Grão Norte Cerealista: R$ 113,80 por saca, 10 mil sacas, entrega em março de 2027" width={390} height={844} />
+            </div>
+          </div>
           <h2>Receba propostas para a sua safra.</h2>
           <p>Compare preço, volume e entrega antes de decidir. Para o produtor, a comissão será de 0%.</p>
         </div>
-        <Image className="field-story-person" src="/images/tier-agro-field-farmer-orange-foreground.png" alt="" fill sizes="100vw" aria-hidden="true" />
+        <Image className="field-story-person" src="/images/tier-agro-field-farmer.jpg" alt="" fill sizes="100vw" aria-hidden="true" />
+        <Image className="field-story-phone" src="/images/tier-agro-field-farmer-orange-phone.png" alt="" fill sizes="100vw" aria-hidden="true" />
         <div className="story-card story-card--front">
           <p className="overline">CRÉDITO E CAPITAL</p>
           <h3>Seus dados ajudam a iniciar uma análise.</h3>
