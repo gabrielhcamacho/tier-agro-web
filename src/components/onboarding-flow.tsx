@@ -26,6 +26,7 @@ const initial: OnboardingInput = {
   property: {
     name: 'Fazenda Santa Rita',
     municipality: 'Sorriso',
+    municipalityCode: '5107925',
     stateCode: 'MT',
     totalAreaHa: 1200,
     possessionType: 'OWNED',
