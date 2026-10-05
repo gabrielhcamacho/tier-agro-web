@@ -8,45 +8,24 @@ const Check = () => (
   <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4.5 10.5 3.2 3.2 7.8-8" /></svg>
 );
 
-const Sprout = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V10m0 2C8 12 5.5 9.8 5 6c4 0 6.5 2.2 7 6Zm0-3c.5-4.2 3.2-6.6 7.5-6.6-.4 4.1-3.1 6.2-7.5 6.6Z" /></svg>
-);
-
-const Contract = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l3 3V20H7V3.5Zm7 0V7h3M9.5 11h5m-5 3h5m-5 3h3" /></svg>
-);
-
-const Chart = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19V9m7 10V5m7 14v-7M3 19.5h18" /></svg>
-);
-
 const Shield = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5.5 5.5v5.8c0 4.2 2.5 7.6 6.5 9.7 4-2.1 6.5-5.5 6.5-9.7V5.5L12 3Z" /><path d="m9.2 12 1.8 1.8 3.8-4" /></svg>
 );
 
-const AppPreview = ({ compact = false }: { compact?: boolean }) => (
-  <div className={`app-preview${compact ? ' app-preview--compact' : ''}`} aria-label="Prévia do aplicativo Tier Agro">
-    <div className="phone-speaker" />
-    <div className="app-topline">
-      <span><small>Bom dia, Gabriel</small><strong>Safra 2026/27</strong></span>
-      <span className="app-avatar">GS</span>
+type PrototypeScreenProps = {
+  src: string;
+  alt: string;
+  className?: string;
+  priority?: boolean;
+};
+
+function PrototypeScreen({ src, alt, className = '', priority = false }: PrototypeScreenProps) {
+  return (
+    <div className={`prototype-screen ${className}`.trim()}>
+      <Image src={src} alt={alt} width={390} height={844} priority={priority} loading={priority ? undefined : 'eager'} sizes="(max-width: 620px) 68vw, 390px" />
     </div>
-    <div className="app-production">
-      <small>PRODUÇÃO ESTIMADA</small>
-      <strong>48.000 <span>sacas</span></strong>
-      <div className="app-progress"><i /></div>
-      <div className="app-production-row"><span>32% comercializado</span><b>15.360 sc</b></div>
-    </div>
-    <div className="app-grid">
-      <div><span className="mini-icon"><Sprout /></span><small>Safra</small><strong>800 ha</strong></div>
-      <div><span className="mini-icon"><Contract /></span><small>Contratos</small><strong>4 ativos</strong></div>
-    </div>
-    <div className="app-cash">
-      <span><small>Posição da safra</small><strong>R$ 3,84 mi</strong></span><span className="trend">+ 8,4%</span>
-    </div>
-    {!compact && <div className="app-tabs"><span className="active"><i>●</i>Início</span><span><i>◇</i>Safra</span><span><i>□</i>Contratos</span><span><i>○</i>Conta</span></div>}
-  </div>
-);
+  );
+}
 
 export default function Page() {
   return (
@@ -56,7 +35,7 @@ export default function Page() {
           <Image src="/brand/tier-agro-dark.png" alt="Tier Agro" width={1810} height={647} priority />
         </a>
         <nav aria-label="Navegação principal">
-          <a href="#produto">Produto</a><a href="#como-funciona">Como funciona</a><a href="#seguranca">Segurança</a><a href="#duvidas">Dúvidas</a>
+          <a href="#produto">Produto</a><a href="#oportunidades">Soluções</a><a href="#seguranca">Segurança</a><a href="#duvidas">Dúvidas</a>
         </nav>
         <div className="header-actions">
           <a className="text-link" href="/entrar">Entrar</a>
@@ -68,37 +47,36 @@ export default function Page() {
         <Image className="hero-photo" src="/images/tier-agro-hero-farmer.jpg" alt="Produtor acompanhando sua operação pelo celular em uma lavoura" fill priority sizes="100vw" />
         <div className="hero-shade" />
         <div className="hero-copy">
-          <span className="pill pill--glass">GESTÃO DA SAFRA, SEM COMPLICAÇÃO</span>
+          <p className="overline overline--light">GESTÃO DA SAFRA, SEM COMPLICAÇÃO</p>
           <h1>Sua operação inteira.<br /><em>Na palma da mão.</em></h1>
-          <p>Produção, contratos, custos e caixa em uma visão simples para você decidir com segurança, dentro ou fora da fazenda.</p>
+          <p>Produção, contratos, custos, caixa e oportunidades para você decidir com mais contexto, dentro ou fora da fazenda.</p>
           <div className="hero-actions">
             <a className="button" href="/criar-conta">Começar agora <Arrow /></a>
-            <a className="button button--glass" href="#produto">Conhecer o aplicativo</a>
+            <a className="text-action text-action--light" href="#produto">Conhecer o aplicativo <Arrow /></a>
           </div>
         </div>
-        <div className="hero-product" aria-hidden="true">
-          <AppPreview />
-          <div className="float-card float-card--production"><span className="status-dot" /><small>PRODUÇÃO ESTIMADA</small><strong>48.000 sacas</strong><span>Safra 2026/27</span></div>
-          <div className="float-card float-card--coverage"><small>COBERTURA COMERCIAL</small><div className="coverage-ring"><span>32%</span></div><span>15.360 sacas protegidas</span></div>
+        <div className="hero-product-real">
+          <PrototypeScreen src="/images/app-home-real.png" alt="Tela inicial real do aplicativo Tier Agro" priority />
+          <p>Interface real do aplicativo</p>
         </div>
-        <div className="hero-tags" aria-label="Principais áreas do produto"><span>Safra</span><span>Contratos</span><span>Custos</span><span>Caixa</span></div>
+        <p className="hero-index">SAFRA&nbsp;&nbsp;/&nbsp;&nbsp; CONTRATOS&nbsp;&nbsp;/&nbsp;&nbsp; CUSTOS&nbsp;&nbsp;/&nbsp;&nbsp; CAIXA</p>
       </section>
 
       <section className="intro content-section" id="produto">
-        <div className="section-label"><span>01</span> O QUE MUDA</div>
+        <div className="section-label"><span>01</span> UMA POSIÇÃO CLARA</div>
         <div className="intro-heading">
           <h2>Menos planilha.<br />Mais clareza para <em>decidir.</em></h2>
-          <p>O Tier Agro transforma as informações espalhadas da fazenda em uma visão objetiva da operação — o que foi produzido, vendido, gasto e o que ainda precisa da sua atenção.</p>
+          <p>O Tier Agro organiza o que está espalhado e mostra a posição da safra sem exigir que você alimente mais um sistema complicado.</p>
         </div>
-        <div className="problem-map">
-          <article className="problem-card"><span className="card-kicker card-kicker--warning">O PROBLEMA</span><h3>Os números ficam espalhados.</h3><p>Planilhas, PDFs, conversas e anotações dificultam enxergar a posição real da safra.</p></article>
-          <div className="map-line map-line--left" />
-          <article className="solution-card">
-            <div className="solution-brand"><Image src="/brand/app-icon.png" alt="" width={52} height={52} /><span><small>A SOLUÇÃO</small><strong>Tier Agro</strong></span></div>
-            <ul><li><Check /> Uma visão para toda a operação</li><li><Check /> Alertas do que merece atenção</li><li><Check /> Dados organizados por safra</li></ul>
-          </article>
-          <div className="map-line map-line--right" />
-          <article className="problem-card problem-card--right"><span className="card-kicker card-kicker--warning">O RISCO</span><h3>A decisão chega atrasada.</h3><p>Sem comparar produção, contratos e custos, uma mudança de mercado pode passar despercebida.</p></article>
+        <div className="real-product-story">
+          <div className="real-product-copy">
+            <span className="story-number">35,7%</span>
+            <h3>Saiba quanto já vendeu — e quanto ainda está exposto.</h3>
+            <p>Produção estimada, contratos confirmados, preço médio e referência disponível aparecem juntos. Você entende sua posição antes de tomar a próxima decisão comercial.</p>
+            <ul><li><Check /> Volume vendido e sem preço</li><li><Check /> Preço médio dos contratos</li><li><Check /> Referência de mercado com fonte e horário</li></ul>
+          </div>
+          <PrototypeScreen src="/images/app-commercial-real.png" alt="Tela real de comercialização da safra no Tier Agro" className="commercial-screen" />
+          <p className="screen-note">Tela real do protótipo<br /><strong>Comercialização da safra</strong></p>
         </div>
       </section>
 
@@ -109,57 +87,108 @@ export default function Page() {
           <h2>Decida com os seus números.</h2><p>Sem depender de memória, planilhas diferentes ou informações desatualizadas.</p>
         </div>
         <div className="story-card story-card--front">
-          <span className="story-icon"><Chart /></span><h3>Uma posição que acompanha a safra.</h3><p>Produção, comercialização e caixa conectados para mostrar onde você está e o que vem pela frente.</p><a href="#como-funciona">Ver como funciona <Arrow /></a>
+          <p className="overline">A POSIÇÃO MUDA. A VISÃO ACOMPANHA.</p>
+          <h3>Produção, vendas e caixa na mesma leitura.</h3><p>O que acontece em um contrato aparece na comercialização e na projeção de recebimentos.</p><a href="#como-funciona">Ver como funciona <Arrow /></a>
         </div>
       </section>
 
       <section className="flow content-section" id="como-funciona">
         <div className="section-label"><span>02</span> COMO FUNCIONA</div>
-        <div className="flow-heading"><h2>Da primeira informação<br />à visão completa da <em>safra.</em></h2><p>Você começa com o essencial e evolui no seu ritmo. O aplicativo organiza cada informação no lugar certo.</p></div>
-        <div className="flow-board">
-          <div className="flow-phone"><AppPreview compact /></div>
+        <div className="flow-heading"><h2>Da primeira informação<br />à visão completa da <em>safra.</em></h2><p>Você começa com o essencial. O aplicativo organiza cada informação no lugar certo e mostra o que merece atenção.</p></div>
+        <div className="flow-board flow-board--real">
+          <div className="flow-phone-real"><PrototypeScreen src="/images/app-home-real.png" alt="Tela real de início do Tier Agro" /></div>
           <ol className="flow-list">
-            <li><span>01</span><div><strong>Cadastre sua fazenda</strong><p>Informe a localização, a área e a cultura para criar a base da operação.</p></div></li>
-            <li><span>02</span><div><strong>Registre safra e contratos</strong><p>Centralize produção, vendas, preços e vencimentos em um só lugar.</p></div></li>
-            <li><span>03</span><div><strong>Acompanhe o que importa</strong><p>Veja cobertura, custos, caixa e prioridades sempre atualizados.</p></div></li>
+            <li><span>01</span><div><strong>Cadastre a fazenda e a safra</strong><p>Localização, área, cultura e produtividade criam a base da operação.</p></div></li>
+            <li><span>02</span><div><strong>Envie contratos e custos</strong><p>Foto, PDF ou preenchimento manual. Você sempre confere antes de salvar.</p></div></li>
+            <li><span>03</span><div><strong>Acompanhe a posição</strong><p>Produção, comercialização, custos e caixa passam a conversar entre si.</p></div></li>
+            <li><span>04</span><div><strong>Veja o que pede ação</strong><p>O aplicativo aponta descasamentos, pendências e caminhos possíveis.</p></div></li>
           </ol>
-          <div className="flow-result"><span className="card-kicker">RESULTADO</span><strong>Uma decisão<br />mais bem informada.</strong><div className="result-metric"><span>Posição comercial</span><b>32%</b></div><div className="result-bar"><i /></div><small>Atualizado agora</small></div>
+          <p className="flow-proof">Esta é a tela real de início do protótipo — não uma ilustração genérica.</p>
         </div>
       </section>
 
       <section className="screens content-section">
         <div className="screens-copy">
-          <div className="section-label"><span>03</span> FEITO PARA O CAMPO</div><h2>O que você precisa ver.<br /><em>Sem ruído.</em></h2><p>Uma experiência direta, com linguagem simples e números que fazem sentido para a rotina da fazenda.</p><a className="button button--dark" href="/criar-conta">Criar minha conta <Arrow /></a>
+          <div className="section-label"><span>03</span> FEITO PARA O CAMPO</div><h2>Telas reais.<br /><em>Dados que conversam.</em></h2><p>O que você vê aqui vem do protótipo do aplicativo: início, comercialização e comparação regional, com a linguagem e os componentes reais do produto.</p><a className="button button--dark" href="/criar-conta">Criar minha conta <Arrow /></a>
         </div>
-        <div className="screen-stack" aria-label="Telas de safra, contratos e caixa do aplicativo">
-          <div className="mini-phone mini-phone--one"><span className="mini-phone-notch" /><small>SAFRA 2026/27</small><h3>Sua safra no app</h3><div className="metric-tile"><span><Sprout /></span><b>48.000</b><small>sacas estimadas</small></div><div className="metric-line"><span>Área plantada</span><b>800 ha</b></div><div className="metric-line"><span>Produtividade</span><b>60 sc/ha</b></div></div>
-          <div className="mini-phone mini-phone--two"><span className="mini-phone-notch" /><small>CONTRATOS</small><h3>Posição comercial</h3><div className="big-percentage">32<small>%</small></div><div className="circle-chart"><i /></div><div className="contract-row"><span>Cooperativa Norte<small>Soja • 8.000 sc</small></span><b>Ativo</b></div><div className="contract-row"><span>Cerealista Vale<small>Soja • 7.360 sc</small></span><b>Ativo</b></div></div>
-          <div className="mini-phone mini-phone--three"><span className="mini-phone-notch" /><small>CAIXA DA SAFRA</small><h3>Movimento previsto</h3><div className="cash-value">R$ 3,84 mi</div><div className="chart-bars"><i /><i /><i /><i /><i /><i /></div><div className="metric-line"><span>Receitas</span><b className="positive">R$ 5,2 mi</b></div><div className="metric-line"><span>Custos</span><b>R$ 1,36 mi</b></div></div>
+        <div className="screen-stack screen-stack--real" aria-label="Telas reais do aplicativo Tier Agro">
+          <PrototypeScreen src="/images/app-home-real.png" alt="Tela real inicial da safra" className="real-phone real-phone--one" />
+          <PrototypeScreen src="/images/app-commercial-real.png" alt="Tela real de comercialização" className="real-phone real-phone--two" />
+          <PrototypeScreen src="/images/app-regional-real.png" alt="Tela real de comparação regional de custos" className="real-phone real-phone--three" />
         </div>
+      </section>
+
+      <section className="opportunities" id="oportunidades">
+        <div className="opportunities-head content-section">
+          <div className="section-label"><span>04</span> ALÉM DA GESTÃO</div>
+          <h2>Quando aparece uma necessidade,<br />o Tier Agro ajuda a abrir <em>o caminho.</em></h2>
+          <p>Não é só acompanhar números. Com contexto e sua autorização, a plataforma aproxima a operação de soluções financeiras, comparações úteis e oportunidades estratégicas.</p>
+        </div>
+
+        <article className="opportunity-row opportunity-row--credit">
+          <div className="opportunity-visual"><PrototypeScreen src="/images/app-credit-real.png" alt="Tela real para solicitar análise de crédito e capital" /></div>
+          <div className="opportunity-copy">
+            <p className="overline">CRÉDITO RURAL COM CONTEXTO</p>
+            <h3>Menos formulário.<br />Mais informação para analisar.</h3>
+            <p>Quando houver necessidade de custeio, investimento ou capital de giro, você autoriza o envio dos dados que já estão no aplicativo. A conversa começa com produção, vendas, custos e caixa organizados.</p>
+            <p className="fine-print">O Tier Agro não promete limite, taxa ou aprovação automática. A análise é feita por especialista.</p>
+          </div>
+        </article>
+
+        <article className="opportunity-row opportunity-row--compare">
+          <div className="opportunity-copy">
+            <p className="overline">ENTENDA SUA EFICIÊNCIA</p>
+            <h3>Descubra onde seu custo está mais alto.</h3>
+            <p>Compare seus custos com operações da mesma região e safra, sem expor quem participa. A comparação só aparece quando existe uma base suficiente para preservar o anonimato.</p>
+            <ul><li><Check /> Dados agregados e anônimos</li><li><Check /> Região e safra comparáveis</li><li><Check /> Mediana e faixa — sem ranking de produtores</li></ul>
+          </div>
+          <div className="opportunity-visual"><PrototypeScreen src="/images/app-regional-real.png" alt="Tela real de comparação anônima de custos regionais" /></div>
+        </article>
+
+        <article className="opportunity-row opportunity-row--farm">
+          <div className="opportunity-visual"><PrototypeScreen src="/images/app-sell-real.png" alt="Tela real para iniciar uma conversa privada sobre venda da operação" /></div>
+          <div className="opportunity-copy">
+            <p className="overline">COMPRA E VENDA COM DISCRIÇÃO</p>
+            <h3>Sua fazenda não vira anúncio.</h3>
+            <p>Manifeste interesse em vender uma propriedade, a operação inteira ou uma participação. A conversa começa de forma privada, com a Mountier, e seus dados só seguem com autorização.</p>
+            <p>O mesmo relacionamento permitirá identificar oportunidades de compra para quem busca expandir — preservando a identidade das partes até o momento certo.</p>
+          </div>
+        </article>
+
+        <article className="opportunity-row opportunity-row--market">
+          <div className="opportunity-copy">
+            <p className="overline">PRÓXIMA ETAPA: MERCADO</p>
+            <div className="zero-commission"><strong>0%</strong><span>de comissão<br />para o produtor</span></div>
+            <h3>Coloque sua produção no mercado e compare propostas.</h3>
+            <p>Na evolução da plataforma, tradings, cooperativas, cerealistas e outros compradores poderão enviar propostas privadas. Você compara preço, volume, entrega e validade antes de seguir.</p>
+            <p className="fine-print">O Mercado está previsto para uma fase posterior do produto. A Tier Agro não cobrará comissão do produtor pela negociação.</p>
+          </div>
+          <div className="opportunity-visual"><PrototypeScreen src="/images/app-market-real.png" alt="Tela real do protótipo futuro para comparar propostas de compradores" /></div>
+        </article>
       </section>
 
       <section className="trust content-section" id="seguranca">
-        <div className="trust-panel"><span className="trust-icon"><Shield /></span><div><div className="section-label section-label--light"><span>04</span> SEGURANÇA</div><h2>Os dados da sua operação<br />continuam sendo <em>seus.</em></h2></div><p>Acesso protegido, informações separadas por conta e controle de privacidade desde o primeiro cadastro.</p><ul><li><Check /> Acesso pessoal e protegido</li><li><Check /> Dados isolados por fazenda</li><li><Check /> Privacidade por padrão</li></ul></div>
+        <div className="trust-panel"><span className="trust-icon"><Shield /></span><div><div className="section-label section-label--light"><span>05</span> SEGURANÇA</div><h2>Os dados da sua operação<br />continuam sendo <em>seus.</em></h2></div><p>Crédito, comparação de custos, venda da operação e futuras propostas de compradores exigem finalidade clara e sua autorização.</p><ul><li><Check /> Acesso pessoal e protegido</li><li><Check /> Comparações sem identificar produtores</li><li><Check /> Compartilhamento só com consentimento</li></ul></div>
       </section>
 
       <section className="faq content-section" id="duvidas">
-        <div><div className="section-label"><span>05</span> DÚVIDAS</div><h2>Antes de começar.</h2></div>
+        <div><div className="section-label"><span>06</span> DÚVIDAS</div><h2>Antes de começar.</h2></div>
         <div className="faq-list">
-          <details open><summary>Preciso cadastrar tudo de uma vez?<span>+</span></summary><p>Não. Você começa com a fazenda e a safra atual, vê seu primeiro resultado e completa as demais informações no seu ritmo.</p></details>
-          <details><summary>O Tier Agro serve para qualquer tamanho de operação?<span>+</span></summary><p>Sim. A estrutura acompanha desde uma propriedade até operações com mais de uma fazenda e diferentes safras.</p></details>
-          <details><summary>Consigo acompanhar contratos e custos?<span>+</span></summary><p>Sim. O aplicativo reúne contratos, custos, comercialização e projeções de caixa na mesma visão da safra.</p></details>
-          <details><summary>Meus dados ficam seguros?<span>+</span></summary><p>Sim. A plataforma foi estruturada para separar as informações de cada conta e proteger o acesso do usuário.</p></details>
+          <details open><summary>O aplicativo oferece crédito rural?<span>+</span></summary><p>Você pode solicitar uma análise de crédito e capital usando o contexto que já cadastrou. O aplicativo não promete limite, taxa ou aprovação automática.</p></details>
+          <details><summary>Outros produtores veem meus custos?<span>+</span></summary><p>Não. A comparação regional usa dados agregados e anônimos e só aparece quando existe uma quantidade suficiente de operações comparáveis.</p></details>
+          <details><summary>Minha fazenda fica anunciada se eu quiser vender?<span>+</span></summary><p>Não. Na primeira versão, a manifestação é privada e inicia uma conversa com a Mountier. Nenhuma operação é publicada automaticamente.</p></details>
+          <details><summary>A Tier Agro cobra comissão para vender a safra?<span>+</span></summary><p>Não. Na futura área Mercado, a Tier Agro terá comissão de 0% para o produtor. Essa experiência pertence a uma etapa posterior da plataforma.</p></details>
         </div>
       </section>
 
       <section className="final-cta section-frame" id="acesso">
-        <div className="final-cta-glow" /><Image src="/brand/tier-agro-white.png" alt="Tier Agro" width={1810} height={647} /><span className="pill pill--glass">A SUA SAFRA MAIS CLARA</span><h2>Leve a gestão da fazenda<br />com você.</h2><p>Comece com poucos dados e transforme a sua operação em decisões mais simples.</p>
+        <div className="final-cta-glow" /><Image src="/brand/tier-agro-white.png" alt="Tier Agro" width={1810} height={647} /><p className="overline overline--light">A SUA SAFRA MAIS CLARA</p><h2>Leve a gestão da fazenda<br />com você.</h2><p>Organize sua operação hoje e construa acesso a decisões e oportunidades melhores amanhã.</p>
         <div className="final-actions"><a className="button" href="/criar-conta">Criar conta <Arrow /></a><a className="button button--glass" href="/entrar">Já tenho uma conta</a></div>
       </section>
 
       <footer>
         <div className="footer-brand"><Image src="/brand/tier-agro-dark.png" alt="Tier Agro" width={1810} height={647} /><p>Sua safra em números simples.</p></div>
-        <div className="footer-links"><strong>Produto</strong><a href="#produto">Visão geral</a><a href="#como-funciona">Como funciona</a><a href="#seguranca">Segurança</a></div>
+        <div className="footer-links"><strong>Produto</strong><a href="#produto">Visão geral</a><a href="#como-funciona">Como funciona</a><a href="#oportunidades">Soluções</a></div>
         <div className="footer-links"><strong>Acesso</strong><a href="/entrar">Entrar</a><a href="/criar-conta">Criar conta</a><a href="mailto:contato@tieragro.com.br">Fale conosco</a></div>
         <div className="footer-bottom"><span>© 2026 Tier Agro. Todos os direitos reservados.</span><span>Privacidade · Termos de uso</span></div>
       </footer>
