@@ -17,7 +17,7 @@ type PrototypeScreenProps = {
   alt: string;
   className?: string;
   priority?: boolean;
-  tone?: 'graphite' | 'natural' | 'orange';
+  tone?: 'graphite' | 'natural';
 };
 
 function PrototypeScreen({ src, alt, className = '', priority = false, tone = 'graphite' }: PrototypeScreenProps) {
@@ -56,7 +56,8 @@ export default function Page() {
 
         <div className="hero-copy hero-copy--reference">
           <p className="overline">GESTÃO DA SAFRA, SEM COMPLICAÇÃO</p>
-          <h1>Sua operação.<br /><em>Sob controle.</em></h1>
+          <h1>Sua safra,<br />mais clara.</h1>
+          <a className="button hero-cta" href="#produto">Conhecer o aplicativo <Arrow /></a>
         </div>
 
         <div className="hero-screen-window">
@@ -66,11 +67,11 @@ export default function Page() {
           <PrototypeScreen src="/images/site-home.png" alt="" priority />
         </div>
 
-        <div className="hero-real-widget hero-real-widget--price">
-          <Image src="/images/site-home.png" alt="Card real de preço médio da operação" width={390} height={844} />
+        <div className="hero-real-widget hero-real-widget--proposal">
+          <Image src="/images/site-market.png" alt="Proposta de compra exibida no protótipo do aplicativo" width={390} height={844} />
         </div>
-        <div className="hero-real-widget hero-real-widget--cash">
-          <Image src="/images/site-home.png" alt="Widget real de projeção de caixa" width={390} height={844} />
+        <div className="hero-real-widget hero-real-widget--tax">
+          <Image src="/images/site-tax.png" alt="Oportunidade tributária exibida no protótipo do aplicativo" width={390} height={844} />
         </div>
       </section>
 
@@ -87,20 +88,24 @@ export default function Page() {
             <p>Produção estimada, contratos confirmados, preço médio e referência disponível aparecem juntos. Você entende sua posição antes de tomar a próxima decisão comercial.</p>
             <ul><li><Check /> Volume vendido e sem preço</li><li><Check /> Preço médio dos contratos</li><li><Check /> Referência de mercado com fonte e horário</li></ul>
           </div>
-          <PrototypeScreen src="/images/site-commercial.png" alt="Tela real de comercialização da safra no Tier Agro" className="commercial-screen" tone="orange" />
+          <PrototypeScreen src="/images/site-commercial.png" alt="Tela real de comercialização da safra no Tier Agro" className="commercial-screen" />
           <p className="screen-note">Tela real do protótipo<br /><strong>Comercialização da safra</strong></p>
         </div>
       </section>
 
       <section className="field-story section-frame">
-        <Image className="field-story-photo" src="/images/tier-agro-field-farmer.jpg" alt="Produtor rural consultando o Tier Agro ao lado de uma lavoura de milho" fill sizes="100vw" />
+        <Image className="field-story-photo" src="/images/tier-agro-field-farmer-orange-phone.png" alt="Produtor rural consultando um iPhone laranja ao lado de uma lavoura de milho" fill sizes="100vw" />
         <div className="story-card story-card--behind">
-          <Image src="/brand/tier-agro-white.png" alt="Tier Agro" width={1810} height={647} />
-          <h2>Decida com os seus números.</h2><p>Sem depender de memória, planilhas diferentes ou informações desatualizadas.</p>
+          <p className="overline overline--light">MERCADO · FASE FUTURA</p>
+          <h2>Receba propostas para a sua safra.</h2>
+          <p>Compare preço, volume e entrega antes de decidir. Para o produtor, a comissão será de 0%.</p>
         </div>
+        <Image className="field-story-person" src="/images/tier-agro-field-farmer-orange-foreground.png" alt="" fill sizes="100vw" aria-hidden="true" />
         <div className="story-card story-card--front">
-          <p className="overline">A POSIÇÃO MUDA. A VISÃO ACOMPANHA.</p>
-          <h3>Produção, vendas e caixa na mesma leitura.</h3><p>O que acontece em um contrato aparece na comercialização e na projeção de recebimentos.</p><a href="#como-funciona">Ver como funciona <Arrow /></a>
+          <p className="overline">CRÉDITO E CAPITAL</p>
+          <h3>Seus dados ajudam a iniciar uma análise.</h3>
+          <p>Peça uma avaliação para custeio, investimento ou capital de giro. Você decide quais informações compartilhar.</p>
+          <a href="#oportunidades">Conhecer as soluções <Arrow /></a>
         </div>
       </section>
 
@@ -124,7 +129,7 @@ export default function Page() {
           <div className="section-label"><span>03</span> FEITO PARA O CAMPO</div><h2>Telas reais.<br /><em>Dados que conversam.</em></h2><p>O que você vê aqui vem do protótipo do aplicativo: início, caixa e comercialização, com a linguagem e os componentes reais do produto.</p><a className="button button--dark" href="/criar-conta">Criar minha conta <Arrow /></a>
         </div>
         <div className="screen-stack screen-stack--real" aria-label="Telas reais do aplicativo Tier Agro">
-          <PrototypeScreen src="/images/site-home.png" alt="Tela real inicial da safra" className="real-phone real-phone--one" tone="orange" />
+          <PrototypeScreen src="/images/site-home.png" alt="Tela real inicial da safra" className="real-phone real-phone--one" />
           <PrototypeScreen src="/images/site-cash.png" alt="Tela real de caixa da operação" className="real-phone real-phone--two" tone="natural" />
           <PrototypeScreen src="/images/site-commercial.png" alt="Tela real de comercialização" className="real-phone real-phone--three" />
         </div>
@@ -138,7 +143,7 @@ export default function Page() {
         </div>
 
         <article className="opportunity-row opportunity-row--credit">
-          <div className="opportunity-visual"><PrototypeScreen src="/images/site-credit.png" alt="Tela real para solicitar análise de crédito e capital" tone="orange" /></div>
+          <div className="opportunity-visual"><PrototypeScreen src="/images/site-credit.png" alt="Tela real para solicitar análise de crédito e capital" /></div>
           <div className="opportunity-copy">
             <p className="overline">CRÉDITO RURAL COM CONTEXTO</p>
             <h3>Menos formulário.<br />Mais informação para analisar.</h3>
@@ -175,7 +180,7 @@ export default function Page() {
             <p>Na evolução da plataforma, tradings, cooperativas, cerealistas e outros compradores poderão enviar propostas privadas. Você compara preço, volume, entrega e validade antes de seguir.</p>
             <p className="fine-print">O Mercado está previsto para uma fase posterior do produto. A Tier Agro não cobrará comissão do produtor pela negociação.</p>
           </div>
-          <div className="opportunity-visual"><PrototypeScreen src="/images/site-market.png" alt="Tela real do protótipo para comparar propostas de compradores" tone="orange" /></div>
+          <div className="opportunity-visual"><PrototypeScreen src="/images/site-market.png" alt="Tela real do protótipo para comparar propostas de compradores" /></div>
         </article>
 
         <article className="opportunity-row opportunity-row--tax">
