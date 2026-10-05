@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import ScrollMotion from './scroll-motion';
 
 const Arrow = () => (
   <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" /></svg>
@@ -37,22 +38,22 @@ function PrototypeScreen({ src, alt, className = '', priority = false, tone = 'g
 export default function Page() {
   return (
     <main>
+      <ScrollMotion />
+      <header className="site-header top-header">
+        <a className="logo-link" href="#inicio" aria-label="Tier Agro — página inicial">
+          <Image src="/brand/tier-agro-dark.png" alt="Tier Agro" width={1810} height={647} priority />
+        </a>
+        <nav aria-label="Navegação principal">
+          <a href="#produto">Produto</a><a href="#oportunidades">Soluções</a><a href="#seguranca">Segurança</a><a href="#duvidas">Dúvidas</a>
+        </nav>
+        <div className="header-actions">
+          <a className="text-link" href="/entrar">Entrar</a>
+          <a className="button button--small" href="/criar-conta">Criar conta <Arrow /></a>
+        </div>
+      </header>
       <section className="hero section-frame" id="inicio">
         <Image className="hero-photo" src="/images/tier-agro-hero-hands-field-v2.png" alt="Mãos de produtor segurando o aplicativo Tier Agro diante de uma lavoura" fill priority sizes="100vw" />
         <div className="hero-wash" />
-
-        <header className="site-header hero-header">
-          <a className="logo-link" href="#inicio" aria-label="Tier Agro — página inicial">
-            <Image src="/brand/tier-agro-dark.png" alt="Tier Agro" width={1810} height={647} priority />
-          </a>
-          <nav aria-label="Navegação principal">
-            <a href="#produto">Produto</a><a href="#oportunidades">Soluções</a><a href="#seguranca">Segurança</a><a href="#duvidas">Dúvidas</a>
-          </nav>
-          <div className="header-actions">
-            <a className="text-link" href="/entrar">Entrar</a>
-            <a className="button button--small" href="/criar-conta">Criar conta <Arrow /></a>
-          </div>
-        </header>
 
         <div className="hero-copy hero-copy--reference">
           <p className="overline">GESTÃO DA SAFRA, SEM COMPLICAÇÃO</p>
@@ -76,12 +77,12 @@ export default function Page() {
       </section>
 
       <section className="intro content-section" id="produto">
-        <div className="section-label"><span>01</span> UMA POSIÇÃO CLARA</div>
-        <div className="intro-heading">
+        <div className="section-label" data-reveal="rise"><span>01</span> UMA POSIÇÃO CLARA</div>
+        <div className="intro-heading" data-reveal="rise">
           <h2>Menos planilha.<br />Mais clareza para <em>decidir.</em></h2>
           <p>O Tier Agro organiza o que está espalhado e mostra a posição da safra sem exigir que você alimente mais um sistema complicado.</p>
         </div>
-        <div className="real-product-story">
+        <div className="real-product-story" data-reveal="wipe">
           <div className="real-product-copy">
             <span className="story-number">64,3%</span>
             <h3>Saiba quanto já vendeu — e quanto ainda está exposto.</h3>
@@ -93,9 +94,9 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="field-story section-frame">
+      <section className="field-story section-frame" data-reveal="fade">
         <Image className="field-story-photo" src="/images/tier-agro-field-farmer.jpg" alt="Produtor rural consultando o celular ao lado de uma lavoura de milho" fill sizes="100vw" />
-        <div className="story-card story-card--behind">
+        <div className="story-card story-card--behind" data-reveal="from-left">
           <p className="overline overline--light">MERCADO · FASE FUTURA</p>
           <div className="story-offer-preview">
             <span>Uma das 3 propostas recebidas</span>
@@ -108,7 +109,7 @@ export default function Page() {
         </div>
         <Image className="field-story-person" src="/images/tier-agro-field-farmer.jpg" alt="" fill sizes="100vw" aria-hidden="true" />
         <Image className="field-story-phone" src="/images/tier-agro-field-farmer-orange-phone.png" alt="" fill sizes="100vw" aria-hidden="true" />
-        <div className="story-card story-card--front">
+        <div className="story-card story-card--front" data-reveal="from-right">
           <p className="overline">CRÉDITO E CAPITAL</p>
           <h3>Seus dados ajudam a iniciar uma análise.</h3>
           <p>Peça uma avaliação para custeio, investimento ou capital de giro. Você decide quais informações compartilhar.</p>
@@ -117,11 +118,11 @@ export default function Page() {
       </section>
 
       <section className="flow content-section" id="como-funciona">
-        <div className="section-label"><span>02</span> COMO FUNCIONA</div>
-        <div className="flow-heading"><h2>Da primeira informação<br />à visão completa da <em>safra.</em></h2><p>Você começa com o essencial. O aplicativo organiza cada informação no lugar certo e mostra o que merece atenção.</p></div>
+        <div className="section-label" data-reveal="rise"><span>02</span> COMO FUNCIONA</div>
+        <div className="flow-heading" data-reveal="rise"><h2>Da primeira informação<br />à visão completa da <em>safra.</em></h2><p>Você começa com o essencial. O aplicativo organiza cada informação no lugar certo e mostra o que merece atenção.</p></div>
         <div className="flow-board flow-board--real">
           <div className="flow-phone-real"><PrototypeScreen src="/images/site-contract.png" alt="Tela real de conferência de contrato fotografado no Tier Agro" tone="natural" /></div>
-          <ol className="flow-list">
+          <ol className="flow-list" data-reveal="stagger">
             <li><span>01</span><div><strong>Cadastre a fazenda e a safra</strong><p>Localização, área, cultura e produtividade criam a base da operação.</p></div></li>
             <li><span>02</span><div><strong>Envie contratos e custos</strong><p>Foto, PDF ou preenchimento manual. Você sempre confere antes de salvar.</p></div></li>
             <li><span>03</span><div><strong>Acompanhe a posição</strong><p>Produção, comercialização, custos e caixa passam a conversar entre si.</p></div></li>
@@ -132,10 +133,10 @@ export default function Page() {
       </section>
 
       <section className="screens content-section">
-        <div className="screens-copy">
+        <div className="screens-copy" data-reveal="from-left">
           <div className="section-label"><span>03</span> FEITO PARA O CAMPO</div><h2>Telas reais.<br /><em>Dados que conversam.</em></h2><p>O que você vê aqui vem do protótipo do aplicativo: início, caixa e comercialização, com a linguagem e os componentes reais do produto.</p><a className="button button--dark" href="/criar-conta">Criar minha conta <Arrow /></a>
         </div>
-        <div className="screen-stack screen-stack--real" aria-label="Telas reais do aplicativo Tier Agro">
+        <div className="screen-stack screen-stack--real" data-reveal="fade" aria-label="Telas reais do aplicativo Tier Agro">
           <PrototypeScreen src="/images/site-home.png" alt="Tela real inicial da safra" className="real-phone real-phone--one" />
           <PrototypeScreen src="/images/site-cash.png" alt="Tela real de caixa da operação" className="real-phone real-phone--two" tone="natural" />
           <PrototypeScreen src="/images/site-commercial.png" alt="Tela real de comercialização" className="real-phone real-phone--three" />
@@ -143,13 +144,13 @@ export default function Page() {
       </section>
 
       <section className="opportunities" id="oportunidades">
-        <div className="opportunities-head content-section">
+        <div className="opportunities-head content-section" data-reveal="rise">
           <div className="section-label"><span>04</span> ALÉM DA GESTÃO</div>
           <h2>Quando aparece uma necessidade,<br />o Tier Agro ajuda a abrir <em>o caminho.</em></h2>
           <p>Não é só acompanhar números. Com contexto e sua autorização, a plataforma aproxima a operação de soluções financeiras, comparações úteis e oportunidades estratégicas.</p>
         </div>
 
-        <article className="opportunity-row opportunity-row--credit">
+        <article className="opportunity-row opportunity-row--credit" data-reveal="from-right">
           <div className="opportunity-visual"><PrototypeScreen src="/images/site-credit.png" alt="Tela real para solicitar análise de crédito e capital" /></div>
           <div className="opportunity-copy">
             <p className="overline">CRÉDITO RURAL COM CONTEXTO</p>
@@ -159,7 +160,7 @@ export default function Page() {
           </div>
         </article>
 
-        <article className="opportunity-row opportunity-row--compare">
+        <article className="opportunity-row opportunity-row--compare" data-reveal="from-left">
           <div className="opportunity-copy">
             <p className="overline">ENTENDA SUA EFICIÊNCIA</p>
             <h3>Descubra onde seu custo está mais alto.</h3>
@@ -169,7 +170,7 @@ export default function Page() {
           <div className="opportunity-visual"><PrototypeScreen src="/images/site-costs.png" alt="Tela real de custos e comparação anônima regional" tone="natural" /></div>
         </article>
 
-        <article className="opportunity-row opportunity-row--farm">
+        <article className="opportunity-row opportunity-row--farm" data-reveal="from-right">
           <div className="opportunity-visual"><PrototypeScreen src="/images/site-sell.png" alt="Tela real para iniciar uma conversa privada sobre venda da operação" /></div>
           <div className="opportunity-copy">
             <p className="overline">COMPRA E VENDA COM DISCRIÇÃO</p>
@@ -179,7 +180,7 @@ export default function Page() {
           </div>
         </article>
 
-        <article className="opportunity-row opportunity-row--market">
+        <article className="opportunity-row opportunity-row--market" data-reveal="from-left">
           <div className="opportunity-copy">
             <p className="overline">PRÓXIMA ETAPA: MERCADO</p>
             <div className="zero-commission"><strong>0%</strong><span>de comissão<br />para o produtor</span></div>
@@ -190,7 +191,7 @@ export default function Page() {
           <div className="opportunity-visual"><PrototypeScreen src="/images/site-market.png" alt="Tela real do protótipo para comparar propostas de compradores" /></div>
         </article>
 
-        <article className="opportunity-row opportunity-row--tax">
+        <article className="opportunity-row opportunity-row--tax" data-reveal="from-right">
           <div className="opportunity-visual"><PrototypeScreen src="/images/site-tax.png" alt="Tela real de oportunidade tributária identificada por especialista" tone="natural" /></div>
           <div className="opportunity-copy">
             <p className="overline">OPORTUNIDADES TRIBUTÁRIAS</p>
@@ -202,11 +203,11 @@ export default function Page() {
       </section>
 
       <section className="trust content-section" id="seguranca">
-        <div className="trust-panel"><span className="trust-icon"><Shield /></span><div><div className="section-label section-label--light"><span>05</span> SEGURANÇA</div><h2>Os dados da sua operação<br />continuam sendo <em>seus.</em></h2></div><p>Crédito, comparação de custos, venda da operação e futuras propostas de compradores exigem finalidade clara e sua autorização.</p><ul><li><Check /> Acesso pessoal e protegido</li><li><Check /> Comparações sem identificar produtores</li><li><Check /> Compartilhamento só com consentimento</li></ul></div>
+        <div className="trust-panel" data-reveal="wipe"><span className="trust-icon"><Shield /></span><div><div className="section-label section-label--light"><span>05</span> SEGURANÇA</div><h2>Os dados da sua operação<br />continuam sendo <em>seus.</em></h2></div><p>Crédito, comparação de custos, venda da operação e futuras propostas de compradores exigem finalidade clara e sua autorização.</p><ul><li><Check /> Acesso pessoal e protegido</li><li><Check /> Comparações sem identificar produtores</li><li><Check /> Compartilhamento só com consentimento</li></ul></div>
       </section>
 
       <section className="faq content-section" id="duvidas">
-        <div><div className="section-label"><span>06</span> DÚVIDAS</div><h2>Antes de começar.</h2></div>
+        <div data-reveal="rise"><div className="section-label"><span>06</span> DÚVIDAS</div><h2>Antes de começar.</h2></div>
         <div className="faq-list">
           <details open><summary>O aplicativo oferece crédito rural?<span>+</span></summary><p>Você pode solicitar uma análise de crédito e capital usando o contexto que já cadastrou. O aplicativo não promete limite, taxa ou aprovação automática.</p></details>
           <details><summary>Outros produtores veem meus custos?<span>+</span></summary><p>Não. A comparação regional usa dados agregados e anônimos e só aparece quando existe uma quantidade suficiente de operações comparáveis.</p></details>
@@ -215,7 +216,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="final-cta section-frame" id="acesso">
+      <section className="final-cta section-frame" id="acesso" data-reveal="fade">
         <div className="final-cta-glow" /><Image src="/brand/tier-agro-white.png" alt="Tier Agro" width={1810} height={647} /><p className="overline overline--light">A SUA SAFRA MAIS CLARA</p><h2>Leve a gestão da fazenda<br />com você.</h2><p>Organize sua operação hoje e construa acesso a decisões e oportunidades melhores amanhã.</p>
         <div className="final-actions"><a className="button" href="/criar-conta">Criar conta <Arrow /></a><a className="button button--glass" href="/entrar">Já tenho uma conta</a></div>
       </section>
