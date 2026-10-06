@@ -69,10 +69,10 @@ export default function Page() {
         </div>
 
         <div className="hero-real-widget hero-real-widget--proposal">
-          <Image src="/images/site-market.png" alt="Proposta de compra exibida no protótipo do aplicativo" width={390} height={844} />
+          <Image src="/images/site-market.png" alt="Proposta de compra exibida no aplicativo" width={390} height={844} />
         </div>
         <div className="hero-real-widget hero-real-widget--tax">
-          <Image src="/images/site-tax.png" alt="Oportunidade tributária exibida no protótipo do aplicativo" width={390} height={844} />
+          <Image src="/images/site-tax.png" alt="Oportunidade tributária exibida no aplicativo" width={390} height={844} />
         </div>
       </section>
 
@@ -90,7 +90,6 @@ export default function Page() {
             <ul><li><Check /> Volume vendido e sem preço</li><li><Check /> Preço médio dos contratos</li><li><Check /> Referência de mercado com fonte e horário</li></ul>
           </div>
           <PrototypeScreen src="/images/site-commercial.png" alt="Tela real de comercialização da safra no Tier Agro" className="commercial-screen" />
-          <p className="screen-note">Tela real do protótipo<br /><strong>Comercialização da safra</strong></p>
         </div>
       </section>
 
@@ -105,7 +104,7 @@ export default function Page() {
             </div>
           </div>
           <h2>Receba propostas para a sua safra.</h2>
-          <p>Compare preço, volume e entrega antes de decidir. Para o produtor, a comissão será de 0%.</p>
+          <p>Compare preço, volume e entrega antes de decidir. Você vende sua soja sem pagar taxa de intermediação.</p>
         </div>
         <Image className="field-story-person" src="/images/tier-agro-field-farmer.jpg" alt="" fill sizes="100vw" aria-hidden="true" />
         <Image className="field-story-phone" src="/images/tier-agro-field-farmer-orange-phone.png" alt="" fill sizes="100vw" aria-hidden="true" />
@@ -128,13 +127,12 @@ export default function Page() {
             <li><span>03</span><div><strong>Acompanhe a posição</strong><p>Produção, comercialização, custos e caixa passam a conversar entre si.</p></div></li>
             <li><span>04</span><div><strong>Veja o que pede ação</strong><p>O aplicativo aponta descasamentos, pendências e caminhos possíveis.</p></div></li>
           </ol>
-          <p className="flow-proof">Tela real do protótipo: o contrato fotografado vira informação conferível antes de ser salvo.</p>
         </div>
       </section>
 
       <section className="screens content-section">
         <div className="screens-copy" data-reveal="from-left">
-          <div className="section-label"><span>03</span> FEITO PARA O CAMPO</div><h2>Telas reais.<br /><em>Dados que conversam.</em></h2><p>O que você vê aqui vem do protótipo do aplicativo: início, caixa e comercialização, com a linguagem e os componentes reais do produto.</p><a className="button button--dark" href="/criar-conta">Criar minha conta <Arrow /></a>
+          <div className="section-label"><span>03</span> FEITO PARA O CAMPO</div><h2>Tudo conectado.<br /><em>Dados que conversam.</em></h2><p>Início, caixa e comercialização compartilham a mesma linguagem e mantêm as informações importantes da operação sempre próximas.</p><a className="button button--dark" href="/criar-conta">Criar minha conta <Arrow /></a>
         </div>
         <div className="screen-stack screen-stack--real" data-reveal="fade" aria-label="Telas reais do aplicativo Tier Agro">
           <PrototypeScreen src="/images/site-home.png" alt="Tela real inicial da safra" className="real-phone real-phone--one" />
@@ -183,12 +181,12 @@ export default function Page() {
         <article className="opportunity-row opportunity-row--market" data-reveal="from-left">
           <div className="opportunity-copy">
             <p className="overline">PRÓXIMA ETAPA: MERCADO</p>
-            <div className="zero-commission"><strong>0%</strong><span>de comissão<br />para o produtor</span></div>
+            <div className="zero-commission"><strong>0%</strong><span>de taxa de intermediação<br />na venda da soja</span></div>
             <h3>Coloque sua produção no mercado e compare propostas.</h3>
-            <p>Na evolução da plataforma, tradings, cooperativas, cerealistas e outros compradores poderão enviar propostas privadas. Você compara preço, volume, entrega e validade antes de seguir.</p>
-            <p className="fine-print">O Mercado está previsto para uma fase posterior do produto. A Tier Agro não cobrará comissão do produtor pela negociação.</p>
+            <p>Tradings, cooperativas, cerealistas e outros compradores poderão enviar propostas privadas. Você compara preço, volume, entrega e validade antes de seguir.</p>
+            <p className="fine-print">Nenhuma taxa de intermediação é descontada da venda: o valor negociado permanece no caixa do produtor.</p>
           </div>
-          <div className="opportunity-visual"><PrototypeScreen src="/images/site-market.png" alt="Tela real do protótipo para comparar propostas de compradores" /></div>
+          <div className="opportunity-visual"><PrototypeScreen src="/images/site-market.png" alt="Tela para comparar propostas de compradores" /></div>
         </article>
 
         <article className="opportunity-row opportunity-row--tax" data-reveal="from-right">
@@ -212,7 +210,7 @@ export default function Page() {
           <details open><summary>O aplicativo oferece crédito rural?<span>+</span></summary><p>Você pode solicitar uma análise de crédito e capital usando o contexto que já cadastrou. O aplicativo não promete limite, taxa ou aprovação automática.</p></details>
           <details><summary>Outros produtores veem meus custos?<span>+</span></summary><p>Não. A comparação regional usa dados agregados e anônimos e só aparece quando existe uma quantidade suficiente de operações comparáveis.</p></details>
           <details><summary>Minha fazenda fica anunciada se eu quiser vender?<span>+</span></summary><p>Não. Na primeira versão, a manifestação é privada e inicia uma conversa com a Mountier. Nenhuma operação é publicada automaticamente.</p></details>
-          <details><summary>A Tier Agro cobra comissão para vender a safra?<span>+</span></summary><p>Não. Na futura área Mercado, a Tier Agro terá comissão de 0% para o produtor. Essa experiência pertence a uma etapa posterior da plataforma.</p></details>
+          <details><summary>A Tier Agro cobra comissão para vender a safra?<span>+</span></summary><p>Não. O produtor paga 0% de taxa de intermediação: nenhum valor é descontado da venda da soja pela Tier Agro.</p></details>
         </div>
       </section>
 
