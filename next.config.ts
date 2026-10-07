@@ -1,6 +1,6 @@
 import type { NextConfig } from 'next';
 const config: NextConfig = {
   output: 'standalone',
-  transpilePackages: ['@tier-agro/contracts', '@tier-agro/ui-tokens'],
+  turbopack: { root: process.cwd() },
 };
 export default config;
