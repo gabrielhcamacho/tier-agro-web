@@ -53,17 +53,8 @@ export default function Page() {
       </div>
     </section>
 
-    <section className="position" aria-labelledby="position-title">
-      <div className="position__copy" data-reveal="rise"><div className="section-index section-index--light"><span>03</span> Posição da safra</div><h2 id="position-title">Saiba quanto já vendeu — e quanto ainda está exposto.</h2><p>Produção estimada, contratos confirmados, preço médio e referência aparecem juntos.</p></div>
-      <div className="position__visual" data-reveal="wipe">
-        <div className="grain-system" aria-hidden="true"><div className="silo silo--one"/><div className="silo silo--two"/><div className="silo silo--three"/><div className="grain-base"><i/></div></div>
-        <div className="position__number"><strong>64,3%</strong><span>da produção vendida</span></div>
-        <dl><div><dt>Produção estimada</dt><dd>42.000 sc</dd></div><div><dt>Sem preço</dt><dd>15.000 sc</dd></div><div><dt>Preço médio</dt><dd>R$ 114,20</dd></div><div><dt>Referência</dt><dd>R$ 112,40</dd></div></dl>
-      </div>
-    </section>
-
     <section className="process section" id="como-funciona">
-      <div className="process__intro" data-reveal="rise"><div className="section-index"><span>04</span> Como funciona</div><h2>Da primeira informação<br/>à visão completa da <em>safra.</em></h2></div>
+      <div className="process__intro" data-reveal="rise"><div className="section-index"><span>03</span> Como funciona</div><h2>Da primeira informação<br/>à visão completa da <em>safra.</em></h2></div>
       <div className="process__board"><div className="process__phone"><Phone src="/images/site-contract.png" alt="Tela para conferência de contrato no Tier Agro" /></div><ol className="process__steps" data-reveal="stagger">
         <li><span>01</span><div><strong>Cadastre a fazenda e a safra</strong><p>Localização, área, cultura e produtividade criam a base da operação.</p></div></li>
         <li><span>02</span><div><strong>Envie contratos e custos</strong><p>Foto, PDF ou preenchimento manual. Você confere antes de salvar.</p></div></li>
@@ -72,13 +63,8 @@ export default function Page() {
       </ol></div>
     </section>
 
-    <section className="core section" aria-labelledby="core-title">
-      <div className="core__head" data-reveal="rise"><p className="eyebrow">O núcleo econômico da operação</p><h2 id="core-title">Seis partes.<br/><em>Uma posição.</em></h2></div>
-      <div className="core__orbit" data-reveal="fade"><div className="core__object" aria-hidden="true"><i/><i/><i/><span/></div>{['Produção estimada','Contratos','Comercialização','Custos','Caixa','Referência regional'].map((item,index)=><div className={`orbit-card orbit-card--${index+1}`} key={item}><span>0{index+1}</span><strong>{item}</strong></div>)}</div>
-    </section>
-
     <section className="solutions" id="solucoes">
-      <div className="solutions__head section" data-reveal="rise"><div className="section-index"><span>05</span> Além da gestão</div><h2>Quando os dados estão organizados,<br/><em>novas possibilidades aparecem.</em></h2><p>Com contexto e sua autorização, a plataforma aproxima a operação de oportunidades sem tirar o controle das suas mãos.</p></div>
+      <div className="solutions__head section" data-reveal="rise"><div className="section-index"><span>04</span> Além da gestão</div><h2>Quando os dados estão organizados,<br/><em>novas possibilidades aparecem.</em></h2><p>Com contexto e sua autorização, a plataforma aproxima a operação de oportunidades sem tirar o controle das suas mãos.</p></div>
       <div className="bento section">
         <article className="bento-card bento-card--market" data-reveal="rise"><div><span className="card-label">Mercado da safra</span><h3>Compare propostas antes de vender.</h3><p>Preço, volume, entrega e validade em uma visão privada.</p></div><Phone src="/images/site-market.png" alt="Tela de propostas de compradores" /></article>
         <article className="bento-card bento-card--credit" data-reveal="rise"><span className="card-label">Crédito rural</span><h3>Menos formulário. Mais contexto.</h3><p>Use os dados organizados para iniciar uma análise de custeio, investimento ou capital de giro.</p><strong>Você escolhe o que compartilhar.</strong></article>
@@ -93,9 +79,9 @@ export default function Page() {
       <div className="market__phone"><Phone src="/images/site-market.png" alt="Tela de comparação de propostas" /></div><div className="offer offer--one"><span>Grão Norte Cerealista</span><strong>R$ 113,80</strong><small>10.000 sacas · mar/2027</small></div><div className="offer offer--two"><span>Proposta privada</span><strong>R$ 114,10</strong><small>8.500 sacas · abr/2027</small></div>
     </section>
 
-    <section className="trust section" id="seguranca"><div className="trust__copy" data-reveal="rise"><div className="section-index section-index--light"><span>06</span> Segurança e controle</div><h2>Os dados da sua operação continuam sendo <em>seus.</em></h2><p>Crédito, comparações, propriedade e propostas exigem finalidade clara e sua autorização.</p></div><ul className="trust__list" data-reveal="stagger"><li><span>01</span><strong>Acesso pessoal e protegido</strong></li><li><span>02</span><strong>Comparações sem identificar produtores</strong></li><li><span>03</span><strong>Compartilhamento só com consentimento</strong></li><li><span>04</span><strong>Finalidade clara em cada solicitação</strong></li></ul></section>
+    <section className="trust section" id="seguranca"><div className="trust__copy" data-reveal="rise"><div className="section-index section-index--light"><span>05</span> Segurança e controle</div><h2>Os dados da sua operação continuam sendo <em>seus.</em></h2><p>Crédito, comparações, propriedade e propostas exigem finalidade clara e sua autorização.</p></div><ul className="trust__list" data-reveal="stagger"><li><span>01</span><strong>Acesso pessoal e protegido</strong></li><li><span>02</span><strong>Comparações sem identificar produtores</strong></li><li><span>03</span><strong>Compartilhamento só com consentimento</strong></li><li><span>04</span><strong>Finalidade clara em cada solicitação</strong></li></ul></section>
 
-    <section className="faq section" id="duvidas"><div className="faq__title" data-reveal="rise"><div className="section-index"><span>07</span> Dúvidas</div><h2>Antes de começar.</h2></div><div className="faq__list">
+    <section className="faq section" id="duvidas"><div className="faq__title" data-reveal="rise"><div className="section-index"><span>06</span> Dúvidas</div><h2>Antes de começar.</h2></div><div className="faq__list">
       <details open><summary>O aplicativo oferece crédito rural?<span>+</span></summary><p>Você pode solicitar uma análise usando o contexto cadastrado. O aplicativo não promete limite, taxa ou aprovação automática.</p></details><details><summary>Outros produtores veem meus custos?<span>+</span></summary><p>Não. A comparação usa dados agregados e anônimos e só aparece quando há uma base suficiente de operações comparáveis.</p></details><details><summary>Minha fazenda fica anunciada se eu quiser vender?<span>+</span></summary><p>Não. A manifestação é privada e nenhuma operação é publicada automaticamente.</p></details><details><summary>A Tier Agro cobra comissão para vender a safra?<span>+</span></summary><p>Não. Nenhum valor é descontado da venda da soja pela Tier Agro.</p></details>
     </div></section>
 
